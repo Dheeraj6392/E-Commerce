@@ -7,6 +7,9 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { SellerAuthComponent } from './seller-auth/seller-auth.component';
 import { SellerHomeComponent } from './seller-home/seller-home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import {  RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { SellerHomeComponent } from './seller-home/seller-home.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    RouterModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

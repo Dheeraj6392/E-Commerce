@@ -26,7 +26,7 @@
      color: blueviolet;
  }
 
- .nav input {
+ .nav .nav-search input {
      flex: 1;
      color: blueviolet;
      border: 1px solid blueviolet;
@@ -34,16 +34,22 @@
      border-right: 0px;
  }
 
- .nav button {
-     flex: 1;
+ .nav .nav-search {
+    margin-top: 5px;
+    flex: 1;
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+ }
+
+ .nav .nav-search button {
+     /* flex: 1; */
      color: blueviolet;
      border: 1px solid blueviolet;
-     height: 38px;
-     border-left: 0px;
+     height: 39px;
  }
 
  .nav-search {
      margin-top: 5px;
  }
 
- 
