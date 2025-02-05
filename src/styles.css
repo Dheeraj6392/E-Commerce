@@ -30,3 +30,7 @@ body{
     text-align: center;
     color: blueviolet;
 }
+
+.error-p{
+    color: red;
+}
