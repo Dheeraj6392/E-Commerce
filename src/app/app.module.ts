@@ -11,7 +11,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {  RouterModule } from '@angular/router';
 import { SellerAddProductComponent } from './seller-add-product/seller-add-product.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { SellerUpdateProductComponent } from './seller-update-product/seller-update-product.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchComponent } from './search/search.component';
+import { FooterComponent } from './footer/footer.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     HeaderComponent,
     SellerAuthComponent,
     SellerHomeComponent,
-    SellerAddProductComponent
+    SellerAddProductComponent,
+    SellerUpdateProductComponent,
+    SearchComponent,
+    FooterComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +37,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     RouterModule,
     HttpClientModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

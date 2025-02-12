@@ -1,12 +1,14 @@
-<div class="add-product"></div>
-<h1>Add New Product</h1>
-<p class="message-p">{{addProductMessage}}</p>
-<form #addProduct="ngForm" class="common-form" (ngSubmit)="addproduct(addProduct.value)">
-<input type="text" class="form-input" placeholder="Enter Product Name" ngModel name = "name" >
-<input type="text" class="form-input" placeholder="Enter Product Price" ngModel name = "price" >
-<input type="text" class="form-input" placeholder="Enter Product Color" ngModel name = "color" >
-<input type="text" class="form-input" placeholder="Enter Product Category" ngModel name = "category" >
-<textarea type="text" class="form-input" placeholder="Enter Product description" ngModel name = "description" ></textarea>
-<input type="text" class="form-input" placeholder="Enter Product Image URL" ngModel name = "image" >
-<button class="form-button">Add Product</button>
-</form>
+<div class="add-product">
+    <h1>Add New Product</h1>
+    <p class="message-p">{{addProductMessage}}</p>
+    <form #addProduct="ngForm" class="common-form" (ngSubmit)="addproduct(addProduct.value)">
+        <input type="text" class="form-input" placeholder="Enter Product Name" ngModel name="name">
+        <input type="text" class="form-input" placeholder="Enter Product Price" ngModel name="price">
+        <input type="text" class="form-input" placeholder="Enter Product Color" ngModel name="color">
+        <input type="text" class="form-input" placeholder="Enter Product Category" ngModel name="category">
+        <textarea type="text" class="form-input" placeholder="Enter Product description" ngModel
+            name="description"></textarea>
+        <input type="text" class="form-input" placeholder="Enter Product Image URL" ngModel name="image">
+        <button class="form-button">Add Product</button>
+    </form>
+</div>

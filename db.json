@@ -41,9 +41,24 @@
       "password": "abc@123",
       "email": "bhasker@test.com",
       "id": "8"
+    },
+    {
+      "id": "8451",
+      "name": "",
+      "password": "",
+      "email": ""
     }
   ],
   "Products": [
+    {
+      "name": "Samsung m 40 a ",
+      "price": "550",
+      "category": "mobile",
+      "color": "white",
+      "description": "this is a Samsung product",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSOO1JDPUNwcPiqzHYhaL_zpJA0Ymlr6mD9sSgTPad_JYdrk-o",
+      "id": "1"
+    },
     {
       "name": "I phone 14",
       "price": "100000",
@@ -97,6 +112,15 @@
       "description": "Noise smart watch for man and women both",
       "image": "https://www.reliancedigital.in/medias/Noise-Colorfit-Pro-2-Smart-Watch-491900986-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3w1MDc0NXxpbWFnZS9qcGVnfGltYWdlcy9oYzkvaDdjLzk1OTE4MjA3NDY3ODIuanBnfDA3MjZlMzkzOTExYzMyNzk5Y2YzOTk0MWFkMjc5YjE5OTlkMDE4NzYzYTg1YzQ2YmNjZjMxYzc5ZDJiYjBlNDg",
       "id": "7"
+    },
+    {
+      "id": "9901",
+      "name": "Coca-Cola",
+      "price": "50",
+      "color": "Red",
+      "category": "drinks",
+      "description": "this is a drink",
+      "image": "https://images.pexels.com/photos/3819969/pexels-photo-3819969.jpeg"
     }
   ],
   "users": [

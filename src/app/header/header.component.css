@@ -30,16 +30,16 @@
      flex: 1;
      color: blueviolet;
      border: 1px solid blueviolet;
-     height: 35px;
+     height: 39px;
      border-right: 0px;
  }
 
  .nav .nav-search {
-    margin-top: 5px;
-    flex: 1;
-    display: flex;
-    margin-left: 5%;
-    margin-right: 5%;
+     margin-top: 5px;
+     flex: 1;
+     display: flex;
+     margin-left: 5%;
+     margin-right: 5%;
  }
 
  .nav .nav-search button {
@@ -53,4 +53,28 @@
      margin-top: 5px;
  }
 
-h1 a{color : blueviolet; text-decoration: none;}
+ h1 a {
+     color: blueviolet;
+     text-decoration: none;
+ }
+
+ .suggested-result{
+    position: absolute;
+    display: list-item ! important;
+    z-index: 10;
+    background-color: #fff;
+    width: 300px;
+    top: 40px;
+    border: 1px solid #ddd;
+ }
+
+ .suggested-result li{
+    border: 1px solid #bbb;
+    padding: 5px;
+
+ }
+
+ .suggested-result li a{
+    cursor: pointer;
+    color: blueviolet;
+ }
