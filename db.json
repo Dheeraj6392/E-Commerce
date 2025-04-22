@@ -47,23 +47,20 @@
       "name": "",
       "password": "",
       "email": ""
+    },
+    {
+      "id": "fb4e",
+      "name": "",
+      "password": "anu12@",
+      "email": "anuragsonkar9919@gmail.com"
     }
   ],
   "Products": [
     {
-      "name": "Samsung m 40 a ",
-      "price": "550",
-      "category": "mobile",
-      "color": "white",
-      "description": "this is a Samsung product",
-      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSOO1JDPUNwcPiqzHYhaL_zpJA0Ymlr6mD9sSgTPad_JYdrk-o",
-      "id": "1"
-    },
-    {
       "name": "I phone 14",
       "price": "100000",
-      "category": "mobile",
       "color": "black",
+      "category": "mobile",
       "description": "An Apple Product",
       "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSOO1JDPUNwcPiqzHYhaL_zpJA0Ymlr6mD9sSgTPad_JYdrk-o",
       "id": "2"
@@ -121,6 +118,24 @@
       "category": "drinks",
       "description": "this is a drink",
       "image": "https://images.pexels.com/photos/3819969/pexels-photo-3819969.jpeg"
+    },
+    {
+      "id": "9727",
+      "name": "Face syrum",
+      "price": "500",
+      "color": "white",
+      "category": "beuty",
+      "description": "it is a syrum",
+      "image": "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    },
+    {
+      "id": "6c2c",
+      "name": "Levies Jeans",
+      "price": "5000",
+      "color": "Red",
+      "category": "Jeans",
+      "description": "this is jeans",
+      "image": "https://www.mumkins.in/cdn/shop/products/denim-jeans-for-kids-bl0612345-darkblue-1.jpg?v=1649143010&width=1800"
     }
   ],
   "users": [
@@ -147,6 +162,30 @@
       "email": "tony@user.com",
       "password": "abc123",
       "id": "4"
+    },
+    {
+      "id": "8407",
+      "name": "aneel",
+      "email": "aneel@123",
+      "password": "aneel123"
+    },
+    {
+      "id": "21f8",
+      "name": "aneel",
+      "email": "aneel@123",
+      "password": "aneel123"
+    },
+    {
+      "id": "277c",
+      "name": "aneel",
+      "email": "aneel@123",
+      "password": "aneel123"
+    },
+    {
+      "id": "4d6a",
+      "name": "bruce",
+      "email": "bruce@test.com",
+      "password": "bruce@123"
     }
   ],
   "cart": [
