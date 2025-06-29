@@ -49,7 +49,7 @@ export class ProductsService {
 
   getProduct(id: number) {
     const products = this.productList();
-    const product = products.find(p => Number(p.id )=== id);
+    const product = products.find(p => Number(p.id) === id);
     return of(product); // 👈 return Observable
   }
 
@@ -134,6 +134,23 @@ export class ProductsService {
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
     const userCart = cart.filter((item: cart) => item.userId === userId);
     this.cartData.emit(userCart);
+  }
+
+
+  addToLocalCart(product: product) {
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  getLocalCart(): product[] {
+    return JSON.parse(localStorage.getItem('cart') || '[]');
+  }
+
+  removeFromLocalCart(productId: number) {
+    let cart = this.getLocalCart();
+    cart = cart.filter(item => item.id !== productId);
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
 }

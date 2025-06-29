@@ -9,17 +9,22 @@ import { product } from '../data-type';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit{
-  popularProducts : undefined | product[];
-  trendyProducts : undefined | product[];
-  constructor(private product : ProductsService){}
-  ngOnInit(){
-   this.product.popularProducts().subscribe((data)=>{
-    console.warn(data);
-    this.popularProducts = data;
-   });
-   this.product.trendyProducts().subscribe((data)=>{
-    this.trendyProducts = data;
-     })
+export class HomeComponent implements OnInit {
+  popularProducts: undefined | product[];
+  trendyProducts: undefined | product[];
+  constructor(private productService: ProductsService) { }
+  ngOnInit() {
+    this.productService.popularProducts().subscribe((data) => {
+      console.warn(data);
+      this.popularProducts = data;
+    });
+    this.productService.trendyProducts().subscribe((data) => {
+      this.trendyProducts = data;
+    })
+  }
+
+  addToCart(item: product) {
+    this.productService.addToLocalCart(item);
+    alert('Product added to cart!');
   }
 }

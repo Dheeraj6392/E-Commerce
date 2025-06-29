@@ -13,23 +13,27 @@ export class DetailsComponent {
   productQuantity: number = 1;
   removeCart = false;
   cartData: product | undefined;
-  constructor(private activeRoute: ActivatedRoute, private product: ProductsService) { }
+  constructor(private activeRoute: ActivatedRoute, private productService: ProductsService) { }
 
   ngOnInit(): void {
     let productId = Number(this.activeRoute.snapshot.paramMap.get('productId'));
     console.warn(productId);
-    productId && this.product.getProduct(productId).subscribe((result) => {
+    productId && this.productService.getProduct(productId).subscribe((result) => {
       this.productData = result;
       console.log(this.productData);
     })
   }
 
-  handleQuantity(val : string){
-    if(this.productQuantity < 20 &&  val == 'plus'){
-     this.productQuantity += 1;
-    }else if(this.productQuantity > 1 && val == 'min'){
-       this.productQuantity--;
+  handleQuantity(val: string) {
+    if (this.productQuantity < 20 && val == 'plus') {
+      this.productQuantity += 1;
+    } else if (this.productQuantity > 1 && val == 'min') {
+      this.productQuantity--;
     }
   }
 
+  addToCart(item: product) {
+    this.productService.addToLocalCart(item);
+    alert('Product added to cart!');
+  }
 }
