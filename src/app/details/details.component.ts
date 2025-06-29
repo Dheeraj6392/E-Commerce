@@ -20,6 +20,7 @@ export class DetailsComponent {
     console.warn(productId);
     productId && this.product.getProduct(productId).subscribe((result) => {
       this.productData = result;
+      console.log(this.productData);
     })
   }
 

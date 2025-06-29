@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataSeederService } from './services/data-seeder.service';
 
 
 @Component({
@@ -8,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'E-commerce';
+  constructor(private seeder: DataSeederService) { }
+
+  ngOnInit(): void {
+    this.seeder.initLocalData();
+  }
 }

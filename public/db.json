@@ -57,6 +57,15 @@
   ],
   "Products": [
     {
+      "name": "I phone 14",
+      "price": "100000",
+      "color": "black",
+      "category": "mobile",
+      "description": "An Apple Product",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSOO1JDPUNwcPiqzHYhaL_zpJA0Ymlr6mD9sSgTPad_JYdrk-o",
+      "id": "2"
+    },
+    {
       "name": "HP Laptop",
       "price": "50000",
       "category": "Laptop",

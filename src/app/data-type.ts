@@ -8,6 +8,7 @@ export interface login{
    email : string;
     password : string;
 }
+
 export interface product{
     name : string ,
     price : number,
@@ -17,7 +18,6 @@ export interface product{
     image : string ,
     id : number
 }
-
 
 export interface cart{
     name:string,
