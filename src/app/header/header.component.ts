@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsService } from '../services/products.service';
 import { product } from '../data-type';
@@ -8,67 +8,90 @@ import { product } from '../data-type';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
-  constructor(private router: Router, private product: ProductsService) { }
-  menuType: string = 'default';
-  sellerName: string = "";
-  userName : string = "";
-  searchResult: undefined | product[];
   
-  ngOnInit() {
-    this.router.events.subscribe((val: any) => {
-      if (val.url) {
-        if (localStorage.getItem('seller') && val.url.includes('seller')) {
-
-          let sellerStore = localStorage.getItem('seller');
-          let sellerData = sellerStore && JSON.parse(sellerStore)[0];
-          this.sellerName = sellerData.name;
-          this.menuType = 'seller';
-
-        } else if (localStorage.getItem('user')) {
-          let userStore = localStorage.getItem('user');
-          let userData = userStore && JSON.parse(userStore);
-          this.userName = userData.name;
-          this.menuType  = 'user';
-        } else {
-          this.menuType = 'default';
-        }
+    currentUser: any;
+    searchResult: undefined | product[];
+    cartCount: number = 0;
+    searchText = '';
+    filteredProducts: product[] = [];
+    allProducts: product[] = [];
+    showDropdown = false;
+  
+    isLoggedIn: boolean = false;
+    constructor(private router: Router, private product: ProductsService) {
+      this.allProducts = this.product.productList(); // load all products
+    }
+    ngOnInit() {
+      this.isLoggedIn = !!localStorage.getItem('user');
+  
+      if (this.isLoggedIn) {
+        this.currentUser = JSON.parse(localStorage.getItem('user')!);
       }
-    })
-  }
-
-  logout() {
-    localStorage.removeItem('seller');
-    this.router.navigate(['/home']);
-  } 
-
-  userLogout() {
-    localStorage.removeItem('user');
-    this.router.navigate(['/user-auth']);
-  } 
-
-  searchProduct(query: KeyboardEvent) {
-    const element = query.target as HTMLInputElement;
-    if (element.value) {
-      this.product.searchProducts(element.value).subscribe((result) => {
-        if (result.length > 5) {
-          result.length = 5;
-        }
-        this.searchResult = result;
-      })
+  
+  
+      this.product.cart$.subscribe(cart => {
+        this.cartCount = cart.length;
+      });
+    }
+  
+  
+    logout() {
+      localStorage.removeItem('user');
+      this.isLoggedIn = false;
+      this.router.navigate(['/user-auth']);
+    }
+  
+  
+  
+    updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      this.cartCount = cart.length;
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    onSearchChange() {
+      const query = this.searchText.toLowerCase();
+      this.filteredProducts = this.allProducts.filter(product =>
+        product.name.toLowerCase().includes(query)
+      );
+      this.showDropdown = this.filteredProducts.length > 0;
+    }
+  
+    onSearchFocus() {
+      if (this.searchText) this.showDropdown = true;
+    }
+  
+    selectProduct(product: product) {
+      this.searchText = product.name;
+      this.showDropdown = false;
+      // Optional: Navigate to product page
+      // this.router.navigate(['/product', product.id]);
+    }
+  
+    performSearch() {
+      // Optional: Implement full search navigation or filter logic here
+      console.log('Search for:', this.searchText);
+      this.showDropdown = false;
+    }
+  
+    // Optional: clickOutside directive or alternative
+    @HostListener('document:click', ['$event.target'])
+    public onClick(target: HTMLElement) {
+      if (!target.closest('.nav-search')) {
+        this.showDropdown = false;
+      }
+    }
+  
+  
+    hideDropdown() {
+      this.showDropdown = false;
     }
   }
-
-  hideSearch() {
-    this.searchResult = undefined;
-  }
-
-  submitSearch(val: string) {
-    this.router.navigate([`search/${val}`])
-  }
-
-  redirectToDetails(id: number) {
-    this.router.navigate(['/details/' + id]);
-  }
-
-
-}

@@ -45,3 +45,27 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
    "scripts": [
        "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
     ]
+
+
+
+
+  ***************************how to deploy the project   follow the below steps(you can ask to chatgpt  also ***********************************
+
+
+
+  @echo off
+echo ► Building Angular App...
+ng build --base-href /E-Commerce/
+
+
+rmdir /s /q temp-deploy
+mkdir temp-deploy
+
+echo ► Copying new build output...
+xcopy dist\E-Commerce\browser\* temp-deploy\ /E /H /C /Y  ----------->>>  or you can copy the content of the folder browser folder contents in to temp-deploy folder
+
+echo ► Deploying to GitHub Pages...
+npx angular-cli-ghpages --dir=./temp-deploy
+
+echo ► DONE! Visit: https://dheeraj6392.github.io/E-Commerce/
+pause

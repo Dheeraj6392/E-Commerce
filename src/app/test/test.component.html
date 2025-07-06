@@ -5,7 +5,7 @@
             (focus)="onSearchFocus()" />
         <!-- <button (click)="performSearch()">Search</button> -->
 
-        <ul  class="search-dropdown" *ngIf="showDropdown && filteredProducts.length > 0 && isLoggedIn">
+        <ul class="search-dropdown" *ngIf="showDropdown && filteredProducts.length > 0">
             <li *ngFor="let product of filteredProducts">
                 <a [routerLink]="['/details', product.id]">
                     {{ product.name }}
@@ -14,11 +14,11 @@
         </ul>
     </div>
     <nav class="nav-bar">
-      <a *ngIf="isLoggedIn" routerLink="/cart" class="nav-item cart-container">
-        <span class="cart-badge" *ngIf="cartCount > 0">{{cartCount}}</span>
-        <i class="fas fa-shopping-cart"></i>
-        <span >Cart</span>
-      </a>
+        <a *ngIf="isLoggedIn" routerLink="/cart" class="nav-item cart-container">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+            <span>Cart</span>
+        </a>
 
         <a *ngIf="isLoggedIn" class="nav-item">
             <i class="fas fa-user-circle"></i>

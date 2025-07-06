@@ -47,3 +47,9 @@
     justify-content: space-between;
     padding: 10px;
 }
+
+.product-footer a{
+    text-decoration: none;
+    border: 1px solid blueviolet;
+    color: blueviolet;
+}

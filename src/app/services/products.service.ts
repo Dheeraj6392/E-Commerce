@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { cart, product } from '../data-type';
-import { of } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  cartData = new EventEmitter<product[] | []>();
+  private cartSubject = new BehaviorSubject<product[]>(this.getLocalCart());
+  cart$ = this.cartSubject.asObservable();
   constructor(private http: HttpClient) {
   }
   addProducts(data: product) {
@@ -110,10 +111,9 @@ export class ProductsService {
   //   return this.http.post('http://localhost:3000/cart', cartData);
   // }
 
-  addToCart(cartData: cart): boolean {
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    const updatedCart = [...cart, cartData];
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
+  addToCart(cartData: product): boolean {
+    const updatedCart = [...this.cartSubject.value, cartData];
+    this.updateCart(updatedCart);
     return true;
   }
 
@@ -133,14 +133,13 @@ export class ProductsService {
   getCartList(userId: number) {
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
     const userCart = cart.filter((item: cart) => item.userId === userId);
-    this.cartData.emit(userCart);
+    this.cartSubject.next(userCart);
   }
 
 
   addToLocalCart(product: product) {
-    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    cart.push(product);
-    localStorage.setItem('cart', JSON.stringify(cart));
+    const updatedCart = [...this.cartSubject.value, product];
+    this.updateCart(updatedCart);
   }
 
   getLocalCart(): product[] {
@@ -148,9 +147,17 @@ export class ProductsService {
   }
 
   removeFromLocalCart(productId: number) {
-    let cart = this.getLocalCart();
-    cart = cart.filter(item => item.id !== productId);
-    localStorage.setItem('cart', JSON.stringify(cart));
+    const updatedCart = this.cartSubject.value.filter(item => item.id !== productId);
+    this.updateCart(updatedCart);
+  }
+
+  private updateCart(newCart: product[]) {
+    localStorage.setItem('cart', JSON.stringify(newCart));
+    this.cartSubject.next(newCart);
+  }
+
+  getCartCount(): number {
+    return this.cartSubject.value.length;
   }
 
 }

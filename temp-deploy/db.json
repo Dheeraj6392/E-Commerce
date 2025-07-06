@@ -53,21 +53,18 @@
       "name": "",
       "password": "anu12@",
       "email": "anuragsonkar9919@gmail.com"
-    },
-    {
-      "id": "6739",
-      "name": "dheeraj ",
-      "password": "dhe",
-      "email": "dhek"
-    },
-    {
-      "id": "49a3",
-      "name": "",
-      "password": "abc123",
-      "email": "anil@user.com"
     }
   ],
   "Products": [
+    {
+      "name": "I phone 14",
+      "price": "100000",
+      "color": "black",
+      "category": "mobile",
+      "description": "An Apple Product",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSOO1JDPUNwcPiqzHYhaL_zpJA0Ymlr6mD9sSgTPad_JYdrk-o",
+      "id": "2"
+    },
     {
       "name": "HP Laptop",
       "price": "50000",
@@ -189,12 +186,6 @@
       "name": "bruce",
       "email": "bruce@test.com",
       "password": "bruce@123"
-    },
-    {
-      "id": "917a",
-      "name": "aditya",
-      "email": "aditya2002@gmail.com",
-      "password": "adi"
     }
   ],
   "cart": [

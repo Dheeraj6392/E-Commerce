@@ -19,6 +19,8 @@ import { FooterComponent } from './footer/footer.component';
 import { DetailsComponent } from './details/details.component';
 import { UserAuthComponent } from './user-auth/user-auth.component';
 import { CartComponent } from './cart/cart.component';
+import { TestComponent } from './test/test.component';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { CartComponent } from './cart/cart.component';
     FooterComponent,
     DetailsComponent,
     UserAuthComponent,
-    CartComponent
+    CartComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

@@ -16,12 +16,15 @@ export class DetailsComponent {
   constructor(private activeRoute: ActivatedRoute, private productService: ProductsService) { }
 
   ngOnInit(): void {
-    let productId = Number(this.activeRoute.snapshot.paramMap.get('productId'));
-    console.warn(productId);
-    productId && this.productService.getProduct(productId).subscribe((result) => {
-      this.productData = result;
-      console.log(this.productData);
-    })
+    this.activeRoute.paramMap.subscribe(params => {
+      const productId = Number(params.get('productId'));
+      if (productId) {
+        this.productService.getProduct(productId).subscribe((result) => {
+          this.productData = result;
+          console.log(this.productData);
+        });
+      }
+    });
   }
 
   handleQuantity(val: string) {

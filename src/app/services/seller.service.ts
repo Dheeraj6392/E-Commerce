@@ -22,12 +22,16 @@ export class SellerService {
       }
     })
   } 
+
+
   reloadSeller(){
     if(localStorage.getItem('seller')){
       this.isSellerLoggedIn.next(true)
       this.router.navigate(['seller-home'])
     }
   }
+
+  
   userLogin(data:login){
    this.http.get(`http://localhost:3000/seller?email=${data.email}&password=${data.password}`,
    {observe:'response'}).subscribe((result:any)=>{

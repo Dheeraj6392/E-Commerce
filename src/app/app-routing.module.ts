@@ -20,7 +20,8 @@ const routes: Routes = [
   },
   {
     path: 'header',
-    component: HeaderComponent
+    component: HeaderComponent,
+    // canActivate: [authGuard],
   },
   {
     path: 'seller-auth',

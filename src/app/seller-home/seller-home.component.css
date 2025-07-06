@@ -1,17 +1,77 @@
-table{
-    text-align: left;
-    color: blueviolet;
+.productList {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff;
+}
+
+.productList h1 {
+    text-align: center;
+    color: rgb(155, 77, 228);;
+    margin-bottom: 20px;
+}
+
+.message-p {
+    text-align: center;
+    color: green;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
     border-collapse: collapse;
+    color: #333;
+    font-size: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
-table td , table th{
-    border: 1px solid blueviolet;
-    margin: 10px;
-    min-height: 160px;
+
+thead {
+    background-color: rgb(155, 77, 228);;
+    color: white;
 }
-img{
-    width: 100px;
-    height: 100px;
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 12px 14px;
+    vertical-align: middle;
 }
-.adjust-update-link{
-    margin-left:20% ;
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1ff;
+}
+
+img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.fa-icon {
+    cursor: pointer;
+    margin-right: 10px;
+    color: rgb(155, 77, 228);
+    transition: color 0.3s;
+}
+
+.fa-icon:hover {
+    color: rgb(155, 77, 228);
+}
+
+.adjust-update-link {
+    margin-left: 10px;
+    text-decoration: none;
+    color: rgb(155, 77, 228);
+}
+
+.adjust-update-link:hover fa-icon {
+    color: rgb(155, 77, 228);
 }
